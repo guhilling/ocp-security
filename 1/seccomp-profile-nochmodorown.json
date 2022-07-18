@@ -64,8 +64,6 @@
 				"capget",
 				"capset",
 				"chdir",
-				"chmod",
-				"chown",
 				"chown32",
 				"clock_getres",
 				"clock_gettime",
@@ -96,8 +94,6 @@
 				"fallocate",
 				"fanotify_mark",
 				"fchdir",
-				"fchmod",
-				"fchown",
 				"fchown32",
 				"fcntl",
 				"fcntl64",
@@ -373,6 +369,10 @@
 		},
 		{
 			"names": [
+				"fchmod",
+				"fchown",
+				"chmod",
+				"chown",
 				"fchmodat",
 				"fchownat"
 			],
