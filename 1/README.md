@@ -19,3 +19,7 @@ oc create -f apache-pod.yaml
 ## Create Privileged Apache _without_ CHOWN
 
 oc create -f apache-pod-droppedcap.yaml
+
+## Run with specific Seccomp-Profile
+
+podman run -it --rm --security-opt seccomp=seccomp-profile-nochmodorown.json busybox
