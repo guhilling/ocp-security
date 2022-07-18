@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: "2022-07-18T13:32:11Z"
+  name: system:openshift:scc:privileged
+  resourceVersion: "1099254"
+  uid: f9704787-37ff-4755-a611-716d309fd9b8
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:privileged
+subjects:
+- kind: ServiceAccount
+  name: privileged
+  namespace: host-privilege
