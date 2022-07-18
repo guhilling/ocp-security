@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: apache
+  name: apache-drop
+spec:
+  containers:
+  - image: registry.access.redhat.com/rhscl/httpd-24-rhel7
+    name: apache
+    securityContext:
+      capabilities:
+        drop:
+        - CHOWN
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
