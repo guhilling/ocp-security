@@ -9,6 +9,7 @@ spec:
   - image: registry.access.redhat.com/rhscl/httpd-24-rhel7
     name: apache
     securityContext:
+      runAsUser: 0
       capabilities:
         drop:
         - CHOWN

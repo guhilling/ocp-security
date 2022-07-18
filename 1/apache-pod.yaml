@@ -8,6 +8,7 @@ spec:
   containers:
   - image: registry.access.redhat.com/rhscl/httpd-24-rhel7
     name: apache
-    resources: {}
+    securityContext:
+      runAsUser: 0
   dnsPolicy: ClusterFirst
   restartPolicy: Always
