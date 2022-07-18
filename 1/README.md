@@ -12,3 +12,10 @@ oc run busybox --image=busybox -- /bin/sh -c "sleep 3600"
 
 ssh core@worker02.ocp4.example.com
 
+## Create Privileged Apache
+
+oc create -f apache-pod.yaml
+
+## Create Privileged Apache _without_ CHOWN
+
+oc create -f apache-pod-droppedcap.yaml
