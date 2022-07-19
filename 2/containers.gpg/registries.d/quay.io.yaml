@@ -1,0 +1,4 @@
+docker:
+  quay.io:
+    sigstore: file:///home/student/sigstore
+    sigstore-staging: file:///home/student/sigstore
