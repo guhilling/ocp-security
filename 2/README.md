@@ -13,3 +13,11 @@ No need to use rngd
 - use quay.io/ghilling/httpd:<your-initials>
 - user: ghilling+do425
 - credentials: see chat
+
+## export gpg keys
+
+- gpg2 --export student@lab.example.com > /home/student/gpg-public.key
+
+## provide sigstore directory
+
+mkdir /home/student/sigstore
