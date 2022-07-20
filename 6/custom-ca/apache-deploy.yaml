@@ -18,7 +18,7 @@ spec:
       volumes:
        - name: trusted-ca
          configMap:
-            name: trusted-ca
+            name: inject-ca-bundle
             items:
              - key: ca-bundle.crt 
                path: tls-ca-bundle.pem
