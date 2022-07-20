@@ -14,3 +14,7 @@
 
 
 ## Repeat previous step
+
+# Import image to ImageStream
+
+- oc import-image docker.io/library/busybox --confirm --scheduled

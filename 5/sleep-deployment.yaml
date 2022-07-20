@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  annotations:
+    image.openshift.io/triggers: |-
+      [{
+        "from": {
+          "kind": "ImageStreamTag",
+          "name": "busybox:latest"
+        },
+        "fieldPath": "spec.template.spec.containers[0].image"
+      }]
+  labels:
+    app: sleeper
+  name: sleeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleeper
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sleeper
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - sleep 3600
+        image: " "
+        name: busybox
+        resources: {}
