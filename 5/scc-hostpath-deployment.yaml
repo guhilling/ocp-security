@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sleeper
+  name: sleeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleeper
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sleeper
+    spec:
+      serviceAccountName: hostaccess
+      securityContext:
+        fsGroup: 1001
+        fsGroupChangePolicy: "OnRootMismatch"
+      volumes:
+        - name: etcmount
+          hostPath:
+            path: /etc
+            type: Directory
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - sleep 3600
+        image: busybox:latest
+        securityContext:
+          runAsUser: 1000680001
+        name: busybox
+        volumeMounts:
+          - name: etcmount
+            mountPath: /hostetc
+        resources: {}
