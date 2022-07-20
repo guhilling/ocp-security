@@ -1,0 +1,12 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ingress-allow-httpservice
+spec:
+  podSelector:
+    matchLabels:
+      app: httpservice
+  ingress:
+    - ports:
+        - port: http
+      from: []
