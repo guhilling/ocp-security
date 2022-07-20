@@ -2,11 +2,18 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: ingress-allow-httpservice
+  namespace: server-netpol
 spec:
   podSelector:
     matchLabels:
-      app: httpservice
+      service: http
   ingress:
     - ports:
-        - port: http
-      from: []
+        - port: 8080
+      from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: client-netpol
+          podSelector:
+            matchLabels:
+              service: client

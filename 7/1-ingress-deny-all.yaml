@@ -1,7 +1,10 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: ingress-deny-all
+  name: ingress-deny-all-ingress
+  namespace: server-netpol
 spec:
   podSelector: {}
+  policyTypes:
+    - Ingress
   ingress: []

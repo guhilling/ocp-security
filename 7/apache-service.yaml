@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apache
+  name: apache
+  namespace: server-netpol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: apache
+        service: http
+    spec:
+      containers:
+      - image: registry.access.redhat.com/rhscl/httpd-24-rhel7:latest
+        name: httpd-24-rhel7
